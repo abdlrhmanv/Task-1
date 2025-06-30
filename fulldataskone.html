@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birth Date</title>
+</head>
+<body>
+
+
+<script>
+    function askBirthDate() {
+        let birthDateStr = prompt("Enter your birth date in the format (DD-MM-YYYY), e.g. 22-01-1999");
+        let regex = /^\d{2}-\d{2}-\d{4}$/;
+        if (regex.test(birthDateStr)) {
+            let parts = birthDateStr.split("-");
+            let day = parseInt(parts[0], 10);
+            let month = parseInt(parts[1], 10) - 1; 
+            let year = parseInt(parts[2], 10);
+
+            let date = new Date(year, month, day);
+            alert("Your date is: " + date.toDateString());
+        } else {
+            alert("Wrong Date Format");
+        }
+    }
+
+    
+    askBirthDate();
+</script>
+
+</body>
+</html>
